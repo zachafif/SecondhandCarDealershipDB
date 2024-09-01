@@ -165,6 +165,63 @@ bid_df=bid_df.to_csv("path\\bid_data.csv")
 
 ```
 
+Then, we create the table in the database,
+
+ ```
+CREATE TABLE city
+(city_id int Primary Key,
+ nama_kota char(50) NOT NULL,
+ latitude numeric(10,8) NOT NULL,
+ longitude numeric(10,8) NOT NULL
+)
+
+CREATE TABLE seller 
+(seller_id serial Primary Key,
+ seller_name char(50) NOT NULL,
+ contact char(100) NOT NULL,
+ domicile int NOT NULL
+);
+
+CREATE TABLE buyer
+(buyer_id serial Primary Key,
+ buyer_name char(50) NOT NULL,
+ contact char(100) NOT NULL,
+ domicile int NOT NULL
+)
+
+CREATE TABLE product
+(product_id int Primary Key,
+ brand char(10) NOT NULL,
+ model char(20) NOT NULL,
+ body_type char(20) NOT NULL,
+ year year NOT NULL,
+ price int NOT NULL,
+ trans_type char (10) NOT NULL,
+ colour char(50) NOT NULL,
+ milleage int NOT NULL,
+ seller_id int NOT NULL
+)
+
+
+CREATE TABLE bid
+(bid_id serial Primary Key,
+ bid_date date NOT NULL,
+ product_id int NOT NULL,
+ buyer_id int NOT NULL,
+ bid_price int NOT NULL
+)
+
+ ```
+
+Furthermore, the dummy data in CSV format was imported into the table,
+
+![image](https://github.com/user-attachments/assets/2878c31e-528a-4815-932f-9199376305b0)
+
+Last, the existing database is then backed up,
+
+![image](https://github.com/user-attachments/assets/af3283c3-212e-4e33-be66-1ed7a1a61767)
+
+
 ## Retrieve Data
 
 For this project, there are several query challenges that need to be solved.
